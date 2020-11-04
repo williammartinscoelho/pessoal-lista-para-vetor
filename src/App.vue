@@ -11,6 +11,25 @@
                 </div>
 
                 <div class="box-output">
+                    <div>
+
+                        <div class="box-checkbox">
+                            <input type="checkbox" id="ordem_alfabetica" v-model="check_ordem_alfebetica">
+                            <label for="ordem_alfabetica">Ordem Alfabética</label>
+                        </div>
+                        
+                        <div class="box-checkbox">
+                            <input type="checkbox" id="remover_vazios" v-model="check_remover_vazio">
+                            <label for="remover_vazios">Remover espaços vazios</label>
+                        </div>
+
+                        <div class="box-checkbox">
+                            <input type="checkbox" id="remover_espacos" v-model="check_remover_espacos">
+                            <label for="remover_espacos">Remover espaços no final das palavras</label>
+                        </div>
+                        
+                    </div>
+
                     <p ref="vetor">{{vetor}}</p>
 
                     <textarea name="vetor" id="vetor" ref="vetor">{{vetor}}</textarea>
@@ -28,7 +47,10 @@
         name: 'App',
         data: function() {
             return {
-                textarea: "input here"
+                textarea: "input here",
+                check_ordem_alfebetica: false,
+                check_remover_vazio: false,
+                check_remover_espacos: true
             }
         },
         computed: {
@@ -36,10 +58,21 @@
                 
                 let text = this.textarea;
                 text = text.split('\n');
-                text.sort()
+                
+                if (this.check_ordem_alfebetica) {
+                    text.sort();
+                }
 
+                if (this.check_remover_espacos) {
+                    for (let i = 0; i < text.length; i++) {
+                        text[i] = text[i].trim();
+                    }
+                }
 
-
+                if (this.check_remover_vazio) {
+                    text = text.filter( e => e !== "");
+                }
+                
                 return text;
             }
         },
@@ -92,6 +125,14 @@
 
     .box-output {
         flex: 1;
+    }
+
+    .box-output .box-checkbox {
+        margin-bottom: 15px;
+    }
+
+    .box-output input {
+        margin-right: 15px;
     }
 
     .box-output p {
