@@ -1,4 +1,8 @@
-# List to Vetor
+# Lista para Vetor
+
+## Introdução
+Este é um projeto pessoal desenvolvido para converter um texto para vetor formatado em codigo.
+
 
 ## Project setup
 ```
