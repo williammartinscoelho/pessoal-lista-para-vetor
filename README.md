@@ -1,2 +1,19 @@
-# pessoal-lista-para-vetor
- Projeto para converter uma lista em texto para um array.
+# List to Vetor
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
